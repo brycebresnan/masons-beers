@@ -27,19 +27,19 @@ class StoreController extends React.Component {
   render(){
     let currentlyVisisbleState = null;
     let buttonText = null;
-
+    
     if (this.state.formVisibleOnPage) {
       currentlyVisisbleState = <NewKegForm onNewKegCreation={this.handleAddingNewKegToList}/>
       buttonText = "Return to Keg List";
     } else {
-      currentlyVisisbleState = <KegList />
+      currentlyVisisbleState = <KegList kegList={this.state.mainKegList}/>
       buttonText = "Add New Keg";
     }
 
     return(
       <>
-      {currentlyVisisbleState}
-      <button onClick={this.handleClick}>{buttonText}</button>
+        {currentlyVisisbleState}
+        <button onClick={this.handleClick}>{buttonText}</button>
       </>
     );
   }
