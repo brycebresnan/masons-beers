@@ -10,7 +10,7 @@ function KegDetail(props){
       <h3>{keg.brewery} - {keg.name}</h3>
       <h4>Style: {keg.style}</h4>
       <h4>ABV: {keg.abv}%</h4>
-      {/* <p>Quantity: {keg.quantity}</p> */}
+      <p>Quantity: {keg.quantity}</p>
       <hr/>
     </>
   );
