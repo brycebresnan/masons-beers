@@ -8,10 +8,16 @@ class StoreController extends React.Component {
     super(props);
     this.state = {
       formVisibleOnPage: false,
-      mainKegList: []
+      mainKegList: [],
+      selectedKeg: null
     };
   }
 
+  handleChangingSelectedKeg = (id) => {
+    const selectedKeg = this.state.mainKegList.filter(keg => keg.id === id)[0];
+    this.setState({selectedKeg: selectedKeg});
+  }
+  
   handleClick = () => {
     this.setState(prevState => ({
       formVisibleOnPage: !prevState.formVisibleOnPage,
@@ -23,6 +29,8 @@ class StoreController extends React.Component {
     this.setState({mainKegList: newMainKegList});
     this.setState({formVisibleOnPage: false});
   }
+
+  handle
 
   render(){
     let currentlyVisisbleState = null;
