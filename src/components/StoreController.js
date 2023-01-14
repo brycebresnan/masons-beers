@@ -17,7 +17,7 @@ class StoreController extends React.Component {
     const selectedKeg = this.state.mainKegList.filter(keg => keg.id === id)[0];
     this.setState({selectedKeg: selectedKeg});
   }
-  
+
   handleClick = () => {
     this.setState(prevState => ({
       formVisibleOnPage: !prevState.formVisibleOnPage,
@@ -35,8 +35,11 @@ class StoreController extends React.Component {
   render(){
     let currentlyVisisbleState = null;
     let buttonText = null;
-    
-    if (this.state.formVisibleOnPage) {
+
+    if (this.state.selectedKeg == !null) {
+      currentlyVisisbleState = <KegDetail keg={this.state.selectedKeg}/>
+      buttonText = "Return to Keg LIst";
+    } else if (this.state.formVisibleOnPage) {
       currentlyVisisbleState = <NewKegForm onNewKegCreation={this.handleAddingNewKegToList}/>
       buttonText = "Return to Keg List";
     } else {
