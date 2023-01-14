@@ -19,7 +19,13 @@
 * Run <code>$rails s</code> to start the server.
 * Navigate in your browser to http://localhost:3000/ -->
 
+## Component Diagram
+
+![Alt text](public/site_design_chart%20(1).jpg?raw=true "Diagram")
+
 ## Known Bugs
+
+
 
 ## License
 MIT License
