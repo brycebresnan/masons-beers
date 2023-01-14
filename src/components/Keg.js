@@ -7,12 +7,13 @@ function Keg(props){
   return (
     <>
       <div onClick = {() => props.whenKegClicked(props.id)}>
-        <h3>{props.brewery} - {props.name}</h3>
+        <h2>{props.brewery} - {props.name}</h2>
         <h4>Style: {props.style}</h4>
         <h4>ABV: {props.abv}%</h4>
-        {props.quantity == 0 
-          ? <p>Out Of Stock</p>
-          : <p>{props.quantity}</p>
+        <h4>Quatntiy: </h4>
+          {props.quantity == 0 
+          ? <h4>Out Of Stock</h4>
+          : <h4>{props.quantity}</h4>
         }
       </div>
       <button onClick={() => props.whenBuyingPint(props.id)}> Buy Pint </button>

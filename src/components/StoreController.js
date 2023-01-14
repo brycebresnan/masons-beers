@@ -2,6 +2,7 @@ import React from "react";
 import NewKegForm from "./NewKegForm";
 import KegList from "./KegList";
 import KegDetail from "./KegDetail";
+import { Container, Section } from "react-bulma-components";
 
 class StoreController extends React.Component {
 
@@ -70,8 +71,12 @@ class StoreController extends React.Component {
 
     return(
       <>
-        {currentlyVisisbleState}
-        <button onClick={this.handleClick}>{buttonText}</button>
+        <Section>
+          <Container>
+            {currentlyVisisbleState}
+            <button onClick={this.handleClick}>{buttonText}</button>
+          </Container>
+        </Section>
       </>
     );
   }

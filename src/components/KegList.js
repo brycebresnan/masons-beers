@@ -1,4 +1,5 @@
 import Keg from "./Keg";
+import { Box, Content } from "react-bulma-components";
 import PropTypes from "prop-types";
 
 function KegList(props){
@@ -6,17 +7,22 @@ function KegList(props){
   return (
     <>
       <hr/>
+      
       {props.kegList.map((keg) =>
-        <Keg 
-          whenKegClicked={props.onKegSelection}
-          name={keg.name}
-          brewery={keg.brewery}
-          style={keg.style}
-          abv={keg.abv}
-          quantity={keg.quantity}
-          whenBuyingPint={props.onBuyingPint}
-          id={keg.id}
-          key={keg.id}/>
+        <Box>
+          <Content>
+            <Keg 
+              whenKegClicked={props.onKegSelection}
+              name={keg.name}
+              brewery={keg.brewery}
+              style={keg.style}
+              abv={keg.abv}
+              quantity={keg.quantity}
+              whenBuyingPint={props.onBuyingPint}
+              id={keg.id}
+              key={keg.id}/>
+          </Content>
+        </Box>
       )}
     </>
   );
