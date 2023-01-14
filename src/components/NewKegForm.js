@@ -8,8 +8,8 @@ function NewKegForm(props){
     event.preventDefault();
     props.onNewKegCreation({
       name: event.target.name.value, 
-      brewery: event.target.location.value, 
-      style: event.target.issue.value,
+      brewery: event.target.brewery.value, 
+      style: event.target.style.value,
       abv: event.target.abv.value,
       id: v4()
     });
