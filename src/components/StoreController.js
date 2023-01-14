@@ -15,9 +15,7 @@ class StoreController extends React.Component {
   }
 
   handleChangingSelectedKeg = (id) => {
-    
     const newSelectedKeg = this.state.mainKegList.filter(keg => keg.id === id)[0];
-    console.log(newSelectedKeg)
     this.setState({selectedKeg: newSelectedKeg});
   }
 
@@ -40,7 +38,16 @@ class StoreController extends React.Component {
     this.setState({formVisibleOnPage: false});
   }
 
-  handle
+  handleBuyingPint = (id) => {
+    const newMainKegList = this.state.mainKegList
+    const foundIndex = newMainKegList.findIndex(keg => keg.id === id);
+    const updateKeg = newMainKegList[foundIndex]
+    if (updateKeg.quantity > 0) {
+      newMainKegList[foundIndex].quantity -= 1
+    }
+    console.log(updateKeg.quantity)
+    this.setState({mainKegList: newMainKegList});
+  }
 
   render(){
     let currentlyVisisbleState = null;
@@ -53,7 +60,11 @@ class StoreController extends React.Component {
       currentlyVisisbleState = <NewKegForm onNewKegCreation={this.handleAddingNewKegToList}/>
       buttonText = "Return to Keg List";
     } else {
-      currentlyVisisbleState = <KegList onKegSelection={this.handleChangingSelectedKeg} kegList={this.state.mainKegList}/>
+      currentlyVisisbleState = 
+      <KegList 
+      onKegSelection={this.handleChangingSelectedKeg} 
+      kegList={this.state.mainKegList}
+      onBuyingPint={this.handleBuyingPint}/>
       buttonText = "Add New Keg";
     }
 
